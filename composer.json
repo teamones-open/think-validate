@@ -1,6 +1,6 @@
 {
-    "name": "topthink/think-validate",
-    "description": "think validate",
+    "name": "teamones/think-validate",
+    "description": "Teamones think-validate fork with strict integer validation and PHP 8.5 regression coverage",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "topthink/think-container":">=3.0"
+        "topthink/think-container": ">=3.0"
     },
     "autoload": {
         "psr-4": {
@@ -19,5 +19,15 @@
         "files": [
             "src/helper.php"
         ]
+    },
+    "replace": {
+        "topthink/think-validate": "self.version"
+    },
+    "scripts": {
+        "test": "@php tests/integer-regression.php vendor/autoload.php"
+    },
+    "support": {
+        "source": "https://github.com/teamones-open/think-validate",
+        "issues": "https://github.com/teamones-open/think-validate/issues"
     }
 }

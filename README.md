@@ -1,3 +1,17 @@
+# Teamones think-validate
+
+Forked from top-think/think-validate v3.0.7. Existing `think\Validate` namespace and APIs are unchanged.
+
+Install: `composer require teamones/think-validate:^3.0`
+
+The `integer` / `int` rule validates the original input with `FILTER_VALIDATE_INT`, rather than casting first. Fractions such as `1.5` / `"1.5"`, booleans, arrays, objects, overflow and non-decimal numeric strings are rejected. Canonical signed decimal integers, zero, numeric integer strings and integral floats (for example `1.0`) remain valid. Leading-zero strings such as `"01"` and scientific notation strings such as `"1e3"` are rejected, matching the PHP integer filter used before upstream v3.0.7. Optional empty-value behavior is unchanged.
+
+Run `composer test` under PHP 8.5 with E_ALL; tests fail on any warning or deprecation.
+
+Original Apache-2.0 license and upstream source notices are preserved.
+
+---
+
 # think-validate
 
 基于PHP8.0+ 的Validate实现

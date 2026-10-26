@@ -1180,7 +1180,8 @@ class Validate
             'number'          => is_numeric($value),
             'alphaNum'        => ctype_alnum((string)$value),
             'array'           => is_array($value),
-            'integer', 'int'  => is_numeric($value) && is_int((int)$value),
+            // Check the original value: casting first silently truncates fractions.
+            'integer', 'int'  => (is_int($value) || is_string($value) || (is_float($value) && is_finite($value))) && false !== filter_var($value, FILTER_VALIDATE_INT),
             'float'           => is_numeric($value) && is_float((float)$value),
             'string'          => is_string($value),
             'file'            => $value instanceof File,
